@@ -97,3 +97,35 @@ def get_disease_from_hpo_by_id(hpo):
     a = df.loc[df["HPOID"] == hpo]
     return a
 
+def print_diseases_with_gene(diseases):
+    diseases = diseases.reset_index()
+    for i in range(len(diseases)):
+        print("----------------------------------------------------")
+        print("Orpha Code: " + diseases.loc[i].OrphaCode)
+        # print("Expert Link: " + diseases.loc[i]["Expert Link"])
+        print("Disease Name: " + diseases.loc[i].Name)
+        print("Disorder Type: " + diseases.loc[i].DisorderType)
+        print("Disorder Group: " + diseases.loc[i].DisorderGroup)
+        #print("----------------------------------------------------")
+        
+def print_gene(diseases):
+    diseases = diseases.reset_index()
+    disease = diseases.loc[0]
+    print(" | ----------------------------------------------------")
+    print(" | Gene ID: " + disease.GeneID)
+    # print("Expert Link: " + diseases.loc[i]["Expert Link"])
+    print(" | Gene Name: " + disease.GeneName)
+    print(" | Gene Symbol: " + disease.GeneSymbol)
+    print(" | Gene Type: " + disease.GeneType)
+    print(" | ----------------------------------------------------")
+    
+
+def get_disease_from_hpo_by_term(hpo):
+    df = get_single_HPO_data()
+    a = df.loc[df["HPOTerm"] == hpo]
+    return a
+
+def get_disease_from_hpo_by_frequency(hpo):
+    df = get_single_HPO_data()
+    a = df.loc[df["HPOFrequency"] == hpo]
+    return a
