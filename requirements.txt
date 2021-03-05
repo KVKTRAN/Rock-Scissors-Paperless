@@ -1,0 +1,8 @@
+IPython
+numpy
+pandas
+folium
+ipywidgets
+matplotlib
+voila
+ipykernel
